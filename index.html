@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PoD Character Database</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js"></script>
+    <script type="text/javascript" src="https://github.com/npm/ini/blob/main/lib/ini.js"></script>
+    <script type="module" src="./script.js" ></script>
+</head>
+<body>
+    <div class="loader" id="loader">
+        <div class="loader-inner">Loading...</div>
+    </div>
+    <div class="char-bg" id="char-bg">
+        <img class="char-bg-icon" src="./img/switch.svg">
+        <div class="char-bg-text" id="char-bg-text">Switch to backgrounds</div>
+    </div>
+    <div class="toast" id="toast">
+        <img class="toast-icon" src="./img/check-o.svg">
+        <div class="toast-text" id="toast-text">Copied to clipboard</div>
+    </div>
+    <div class="content" id="char-selector">
+        <h1>PoD Character Database</h1>
+        <input
+                class="char-search"
+                id="char-search"
+                type="search"
+                placeholder="Type here to filter the characters"
+        >
+        <div class="char-table" id="character-table">
+            <!--Generated character list-->
+        </div>
+    </div>
+    <div class="content" id="bg-selector" style="display: none">
+        <h1>PoD Background Database</h1>
+        <input
+                class="bg-search"
+                id="bg-search"
+                type="search"
+                placeholder="Type here to filter the backgrounds"
+        >
+        <div class="bg-table" id="background-table">
+            <!--Generated background list-->
+        </div>
+    </div>
+</body>
+</html>

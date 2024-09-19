@@ -1,0 +1,177 @@
+.loader {
+    display: none;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loader-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+.toast,
+.char-bg{
+    padding: 10px;
+    border: 1px solid #000;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    top: 20px;
+}
+
+.toast {
+    right: 20px;
+    visibility: hidden;
+}
+
+.char-bg {
+    left: 20px;
+    cursor: pointer;
+}
+
+.char-bg:hover {
+    background-color: lightgrey;
+}
+
+.toast-icon,
+.char-bg-icon {
+
+}
+
+.toast-text,
+.char-bg-text {
+    margin-left: 7px
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.char-search,
+.bg-search {
+    width: 215px;
+    margin-bottom: 10px;
+}
+
+.char-table,
+.bg-table {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.char-box,
+.bg-box {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #000;
+    margin: 3px;
+}
+
+.char-box {
+    height: 74px;
+    width: 180px;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.bg-box {
+    height: 252px;
+    width: 270px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.char-box:hover,
+.bg-box:hover {
+    background-color: lightgrey;
+}
+
+.char-icon,
+.bg-icon {
+    border: 1px solid #000;
+    margin: 0 6px;
+}
+
+.char-icon {
+    height: 60px;
+    width: 60px;
+}
+
+.bg-icon {
+    height: 192px;
+    width: 256px;
+}
+
+.char-icon:hover,
+.bg-icon:hover {
+    cursor: pointer;
+}
+
+.bg-buttons {
+    display: flex;
+}
+
+.char-name,
+.bg-name {
+    font-size: 14px;
+    text-align: left;
+}
+
+.bg-name {
+    margin-top: 5px;
+}
+
+.char-download,
+.char-clipboard {
+    position: absolute;
+    top: 0;
+}
+
+.char-download {
+    right: 0;
+}
+
+.char-clipboard {
+    right: 24px;
+}
+
+.bg-download,
+.bg-clipboard {
+}
+
+.char-download:hover,
+.bg-download:hover {
+    cursor: pointer;
+    -webkit-filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
+    filter: invert(1);
+}
+
+.char-clipboard:hover,
+.bg-clipboard:hover {
+    cursor: pointer;
+    -webkit-filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
+    filter: invert(1);
+}
+
+.disabled:hover {
+    cursor: not-allowed;
+}
