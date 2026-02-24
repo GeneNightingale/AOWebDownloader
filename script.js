@@ -15,7 +15,8 @@ const IGNORE_VALUES = new Set([
     "Last modified",
     "Size",
     "Description",
-    "Parent Directory"
+    "Parent Directory",
+    "../"
 ])
 
 const FETCH = {
