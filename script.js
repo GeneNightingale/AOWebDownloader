@@ -385,8 +385,34 @@ const exportZip = (specificName, blobData) => {
     });
 }
 
-export const downloadAndZip = (specificName, urls) => {
-    Promise.all(urls.map(download)).then(blobData => exportZip(specificName, blobData)).finally(() => {
+export const downloadAndZip = async (specificName, urls) => {
+    const MAX_CONCURRENT = 8;
+    const blobData = [];
+    let nextIndex = 0;
+
+    async function worker() {
+        while (true) {
+            const current = nextIndex++;
+            if (current >= urls.length) break;
+
+            try {
+                blobData[current] = await download(urls[current]);
+            } catch (err) {
+                console.error(`Failed to download ${urls[current]}`, err);
+            }
+        }
+    }
+
+    try {
+        await Promise.all(
+            Array.from(
+                { length: Math.min(MAX_CONCURRENT, urls.length) },
+                worker
+            )
+        );
+
+        exportZip(specificName, blobData.filter(Boolean));
+    } finally {
         document.getElementById('loader').style.display = 'none';
-    })
-}
+    }
+};
