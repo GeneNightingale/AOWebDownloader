@@ -197,7 +197,13 @@ export const buildBackgroundsTable = async () => {
             } else {
                 const validUrls = await crawl(`${BASE_BACKGROUND_URL}${backgroundNames[i]}/`, FETCH.CRAWL);
 
-                bgIcon.src = filterByExtension(validUrls,imageFallbacks)[0];
+                const filteredFallbacks = filterByExtension(validUrls,imageFallbacks);
+
+                if (filteredFallbacks?.length > 0) {
+                    bgIcon.src = filteredFallbacks[0];
+                } else {
+                    bgIcon.onerror = null;
+                }
             }
         });
 
