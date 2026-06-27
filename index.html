@@ -11,7 +11,16 @@
 </head>
 <body>
     <div class="loader" id="loader">
-        <div class="loader-inner">Loading...</div>
+        <div class="loader-inner">
+            Loading...
+            <div class="loader-bar">
+                <img class="loader-bar-progress-run"
+                     src="img/run.gif"
+                     onerror="this.style.display='none'"
+                     id="loader-progress-run">
+                <div class="loader-bar-progress" id="loader-progress"></div>
+            </div>
+        </div>
     </div>
     <div class="char-bg" id="char-bg">
         <img class="char-bg-icon" src="./img/switch.svg">

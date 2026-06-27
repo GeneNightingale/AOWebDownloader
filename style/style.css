@@ -21,6 +21,27 @@
     -ms-transform: translate(-50%,-50%);
 }
 
+.loader-bar {
+    width: 200px;
+    height: 10px;
+    background-color: darkgray;
+}
+
+.loader-bar-progress {
+    width: 0%;
+    height: 100%;
+    background-color: lightgreen;
+    position: relative;
+}
+
+.loader-bar-progress-run {
+    position: relative;
+    float: left;
+    transform: translateX(-50%) translateY(-50%);
+    left: 0%;
+    z-index: 100;
+}
+
 .toast,
 .char-bg{
     padding: 10px;

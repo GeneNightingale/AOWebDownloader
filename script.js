@@ -3,7 +3,7 @@
 
 import * as ini from 'https://esm.run/ini';
 
-const BASE_URL = window.location.origin + "/base/";
+const BASE_URL = "https://miku.pizza/" + "/base/";
 
 const BASE_CHARACTERS_URL = BASE_URL + "characters/";
 const BASE_BACKGROUND_URL = BASE_URL + "background/";
@@ -421,6 +421,10 @@ export const downloadAndZip = async (specificName, urls) => {
     async function worker() {
         while (true) {
             const current = nextIndex++;
+
+            let progressPercentage = 100 * current / urls.length;
+            document.getElementById('loader-progress').style.width = progressPercentage + "%";
+            document.getElementById('loader-progress-run').style.left = progressPercentage + "%";
             if (current >= urls.length) break;
 
             try {
@@ -442,5 +446,7 @@ export const downloadAndZip = async (specificName, urls) => {
         exportZip(specificName, blobData.filter(Boolean));
     } finally {
         document.getElementById('loader').style.display = 'none';
+        document.getElementById('loader-progress').style.width = "0%";
+        document.getElementById('loader-progress-run').style.left = "0%";
     }
 };
