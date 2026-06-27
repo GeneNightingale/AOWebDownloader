@@ -3,7 +3,7 @@
 
 import * as ini from 'https://esm.run/ini';
 
-const BASE_URL = "https://miku.pizza/" + "/base/";
+const BASE_URL = window.location.origin + "/base/";
 
 const BASE_CHARACTERS_URL = BASE_URL + "characters/";
 const BASE_BACKGROUND_URL = BASE_URL + "background/";
