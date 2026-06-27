@@ -109,9 +109,31 @@ export const buildCharacterTable = async () => {
 
         const characterIcon = document.createElement('img');
         characterIcon.classList.add('char-icon');
-        characterIcon.setAttribute("src", `${BASE_CHARACTERS_URL + characterNames[i] + '/char_icon.png'}`);
-        characterIcon.setAttribute("onerror",`${"this.src='" + BASE_CHARACTERS_URL + characterNames[i] + "/char%20icon.png'"}`)
-        characterIcon.setAttribute("title",`${characterNames[i]}`)
+
+        const iconCandidates = [];
+        const iconNames = ["char_icon", "char icon"];
+
+        for (const iconName of iconNames) {
+            for (const ext of imageFallbacks) {
+                iconCandidates.push(
+                    `${BASE_CHARACTERS_URL}${characterNames[i]}/${iconName}${ext}`
+                );
+            }
+        }
+
+        let candidateIndex = 0;
+        characterIcon.src = iconCandidates[candidateIndex];
+
+        characterIcon.addEventListener("error", () => {
+            candidateIndex++;
+
+            if (candidateIndex < iconCandidates.length) {
+                characterIcon.src = iconCandidates[candidateIndex];
+            } else {
+            }
+        });
+
+        characterIcon.title = characterNames[i];
         characterIcon.addEventListener("click", () => {
             location.href = `${BASE_CHARACTERS_URL + characterNames[i]}`;
         });
@@ -144,9 +166,9 @@ export const buildCharacterTable = async () => {
         characterBox.appendChild(characterName);
         characterBox.appendChild(downloadIcon);
         characterBox.appendChild(clipboardIcon);
-        characterTable.appendChild(characterBox)
-    }
 
+        characterTable.appendChild(characterBox);
+    }
 }
 
 export const buildBackgroundsTable = async () => {
